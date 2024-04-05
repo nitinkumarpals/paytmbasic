@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import { Button, InputBox, BottomWarning, Heading, SubHeading } from "../components/index";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Signin = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -24,7 +26,9 @@ const Signin = () => {
                 username,
                 password
               } );
+              navigate("/dashboard");
               localStorage.setItem("token", response.data.token);
+              localStorage.setItem("firstName", response.data.firstName);
             }}
              label={"Sign In"} />
             <BottomWarning label={"Don't have an account?"} buttonText={"Sign Up"} to={"/signup"} />

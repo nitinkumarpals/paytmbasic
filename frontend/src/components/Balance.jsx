@@ -2,7 +2,7 @@ import React from 'react'
 
 const Balance = ({value}) => {
   return (
-    <div className='flex'>
+    <div className='flex m-2'>
       <div className='font-bold text-lg'>
           Your balance
       </div>

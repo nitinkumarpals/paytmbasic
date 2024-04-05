@@ -16,7 +16,7 @@ const Users = () => {
 
   
   return (
-    <div>
+    <div className='m-3'>
       <div className='font-bold mt-6 text-lg'>
         Users
       </div>
@@ -26,7 +26,7 @@ const Users = () => {
       </div>
       <div>
         {users.map(user => (
-          <UserComponent user={user}/>
+          <UserComponent user={user} key={user._id}/>
         ))}
       </div>
     </div>
@@ -36,7 +36,7 @@ const Users = () => {
 function UserComponent({user}) {
   const navigate = useNavigate();
 
-  return <div className="flex justify-between">
+  return <div className="flex justify-between m-3">
       <div className="flex">
           <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
               <div className="flex flex-col justify-center h-full text-xl">
@@ -45,7 +45,7 @@ function UserComponent({user}) {
           </div>
           <div className="flex flex-col justify-center h-ful">
               <div>
-                  {user.firstName} {user.lastName}
+              {user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)} {user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1)}
               </div>
           </div>
       </div>

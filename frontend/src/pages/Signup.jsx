@@ -1,11 +1,13 @@
 import { Button, InputBox, BottomWarning, Heading, SubHeading } from "../components/index";
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   return (
     <div className="bg-slate-300 h-screen flex justify-center">
       <div className="flex flex-col justify-center">
@@ -41,6 +43,7 @@ const Signup = () => {
             lastName
           } );
           localStorage.setItem("token", response.data.token);
+          navigate("/dashboard");
         }} 
         label={"Sign Up"} />
         <BottomWarning label={"Already have an account?"} buttonText={"Sign In"} to={"/signin"} />
